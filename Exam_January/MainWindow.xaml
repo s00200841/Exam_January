@@ -26,7 +26,7 @@
         <TextBlock x:Name="tblk_TransactionAmount_Generic" Grid.Column="2" HorizontalAlignment="Left" Margin="327,457,0,0" TextWrapping="Wrap" Text="Transaction Amount" VerticalAlignment="Top"/>
         <TextBox x:Name="tbx_TransactionAmount" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="451,456,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btn_Deposit" Content="Deposit" Grid.Column="2" HorizontalAlignment="Left" Margin="620,151,0,0" VerticalAlignment="Top" Width="75" Click="btn_Deposit_Clicked"/>
-        <Button x:Name="btn_Withdraw" Content="Withdraw" Grid.Column="2" HorizontalAlignment="Left" Margin="620,205,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btn_Withdraw" Content="Withdraw" Grid.Column="2" HorizontalAlignment="Left" Margin="620,205,0,0" VerticalAlignment="Top" Width="75" Click="btn_Withdraw_Clicked"/>
         <Button x:Name="btn_interest" Content="Interest" Grid.Column="2" HorizontalAlignment="Left" Margin="620,261,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBlock x:Name="tblk_FirstName" Grid.Column="2" HorizontalAlignment="Left" Margin="442,155,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock x:Name="tblk_LastName" Grid.Column="2" HorizontalAlignment="Left" Margin="442,204,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>

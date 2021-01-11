@@ -21,6 +21,8 @@ using System.Windows.Shapes;
 /// GitHub : https://github.com/s00200841/Exam_January
 /// i doubt i will come close to finished in 2 hrs, will see!!
 /// got as far as adding Deposit and Withdraw 
+/// couldnt get withdraw done in time, have to finish and upload now
+/// realy needed 3 hrs but done what i could 
 /// </summary>
 namespace Exam_January
 {
@@ -132,6 +134,21 @@ namespace Exam_January
             bool isDecimal = decimal.TryParse(input, out inputd);
             if (isDecimal)
                 selectedAccount.Deposit(inputd);
+            tblk_Balance.Text = selectedAccount.Balance.ToString();
+        }
+
+        private void btn_Withdraw_Clicked(object sender, RoutedEventArgs e)
+        {
+            Account selectedAccount = lbx_Accounts.SelectedItem as Account;
+            string input = tbx_TransactionAmount.Text;
+            decimal inputd;
+            bool isDecimal = decimal.TryParse(input, out inputd);
+
+            decimal temp = Convert.ToDecimal(tblk_AccountBalance.Text);
+            decimal.TryParse(tblk_AccountBalance.Text, out temp);
+            if (isDecimal && inputd < temp)
+                selectedAccount.Withdraw(inputd);
+            tblk_Balance.Text = selectedAccount.Balance.ToString();
         }
     }
 }

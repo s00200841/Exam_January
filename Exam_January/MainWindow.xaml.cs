@@ -20,6 +20,7 @@ using System.Windows.Shapes;
 /// Class Games Development
 /// GitHub : https://github.com/s00200841/Exam_January
 /// i doubt i will come close to finished in 2 hrs, will see!!
+/// got as far as adding Deposit and Withdraw 
 /// </summary>
 namespace Exam_January
 {
@@ -78,6 +79,59 @@ namespace Exam_January
                     }
                 }
             }
+        }
+
+        private void cbox_Checked(object sender, RoutedEventArgs e)
+        {
+            bool check = true;
+            filterAccounts.Clear();
+            lbx_Accounts.ItemsSource = null;
+
+            if (cbox_CurrentAccount.IsChecked == true && cbox_SavingAccount.IsChecked == true)
+            {
+                lbx_Accounts.ItemsSource = accounts.OrderBy(c => c.LastName);
+            }
+            else
+            {
+                if (cbox_CurrentAccount.IsChecked == true)
+                {
+                    check = true;
+                }
+                else if (cbox_SavingAccount.IsChecked == true)
+                {
+                    check = false;
+                }
+
+                foreach (Account account in accounts)
+                {
+                    if (check)
+                    {
+                        if (account as CurrentAccount != null)
+                        {
+                            filterAccounts.Add(account);
+                        }
+                    }
+                    if (!check)
+                    {
+                        if (account as SavingsAccount != null)
+                        {
+                            filterAccounts.Add(account);
+                        }
+                    }
+                }
+                lbx_Accounts.ItemsSource = filterAccounts.OrderBy(c => c.LastName);
+            }
+        }
+
+
+        private void btn_Deposit_Clicked(object sender, RoutedEventArgs e)
+        {
+            Account selectedAccount = lbx_Accounts.SelectedItem as Account;
+            string input = tbx_TransactionAmount.Text;
+            decimal inputd;
+            bool isDecimal = decimal.TryParse(input, out inputd);
+            if (isDecimal)
+                selectedAccount.Deposit(inputd);
         }
     }
 }

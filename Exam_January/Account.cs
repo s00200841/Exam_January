@@ -22,9 +22,15 @@ namespace Exam_January
             
         }
 
-        public void Deposit() { }
+        public void Deposit(decimal amountToAdd) 
+        {
+            Balance += amountToAdd;
+        }
 
-        public void Withdraw() { }
+        public void Withdraw(decimal amountToAdd) 
+        {
+            Balance -= amountToAdd;
+        }
 
         public abstract decimal CalculateInterest();
 
